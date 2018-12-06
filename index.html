@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>International Space Station Tracker</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href="css/animate.min.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet">
+   <!-- Bootstrap CSS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <!-- leaflet scriptfiles -->
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+    <!--Link the javascript files this is for the moment time thingy-->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <div id="navigation">
+    <nav class="navbar navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="row">
+          <div class="site-logo">
+            <a href="index.html" class="brand">ISS Tracker</a>
+          </div>
+
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#home">Home</a></li>
+              <li><a href="#location">Current Location</a></li>
+              <li><a href="#future">Future Track</a></li>
+              <li><a href="#images">Images</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <!-- /.Navbar-collapse -->
+        </div>
+      </div>
+      <!-- /.container -->
+    </nav>
+  </div>
+  <!-- /Navigation -->
+
+  <div id="home">
+    <div class="slider">
+      <img src="img/3b.jpg" class="img-responsive" />
+    </div>
+  </div>
+  <br>
+
+
+  <!-- Section: location -->
+  <section id="location">
+     
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
+              <div class="section-heading text-center">
+                <h2 class="h-bold">Location</h2>
+                <div class="divider-header"></div>
+                <p>Track where the International Space Station is right now</p>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-12" id="mapId"></div>
+        <div class=container>
+        <div class="col-12" id="issInfo">
+            <br>
+            <div id="rowOne"> </div>
+            <div id="rowTwo"> </div>
+            <hr>
+
+       
+      
+      
+    
+</div>
+   
+
+
+  <!-- /Section: location -->
+
+  <!-- Section: future -->
+  <section id="future" class="home-section color-dark bg-white">
+    
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
+            <div class="section-heading text-center">
+              <h2 class="h-bold">Future Track</h2>
+              <div class="divider-header"></div>
+              <p>Enter a city to find out when the International Space Station will pass over</p>
+            </div>
+          </div>
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend ">
+                              <button class="button btn-warning" type="button" id="button-addon1">Enter City</button>
+                          </div>
+                          <input type="text" class="form-control col-md-3 " placeholder="Example - Orlando, FL">
+                      </div>
+                      <div class="scrollit">
+                          <table class="table">
+                              <div id="tableScroll">
+                                  <thead>
+                                      <tr>
+                                          <th scope="col">City</th>
+                                          <th scope="col">ISS Pass</th>
+                                          <th scope="col">Duration</th>
+                                          <th scope="col">Appears</th>
+                                          <th scope="col">Start Elevation</th>
+                                          <th scope="col">Max Elevation</th>
+                                          <th scope="col">Departs</th>
+                                      </tr>
+                                  </thead>
+          
+                                  <tbody>
+                                      <tr>
+                                          <td></td>
+                                      </tr>
+                                  </tbody>
+                              </div>
+                          </table>
+                      </div>
+                  
+            
+          
+      
+   
+
+    <div class="container">
+
+    </div>
+  </section>
+  <!-- Section: future -->
+
+  <!-- Section: imagess -->
+  <section id="images">
+   
+     
+        <div class="col-lg-12">
+          <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
+            <div class="section-heading text-center">
+              <h2 class="h-bold">Images</h2>
+              <div class="divider-header"></div>
+              <p>See images of the ISS from the NASA Image Archive.</p>
+
+              <div class="apod">
+                  <div class="col-12" id="apodText">
+                  </div>
+                  <div class="row">
+                      <div class="col-12" id="apod1"> </div>
+      
+                  </div>
+                  <div class="row">
+                      <div class="col-12" id="apod2"> </div>
+                      <div class="caption text"></div>
+                  </div>
+      
+              </div>
+            
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </section>
+  <!-- Section: services -->
+
+
+ 
+
+  <footer>
+  <section id="contact"></section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center">
+            <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+            <br>
+            <a href="mailto:preston@pmack.com"> Send an email to Preston Mack </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Core JavaScript Files -->
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/app.js"></script>
+  <script src="contactform/contactform.js"></script>
+
+</body>
+
+</html>
